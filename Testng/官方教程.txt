@@ -1,194 +1,106 @@
-1,½éÉÜ
+1,ä»‹ç»
 	TestNG is a testing framework designed to simplify a broad range of testing needs, from unit testing (testing a class in isolation of the others) to integration testing (testing entire systems made of several classes, several packages and even several external frameworks, such as application servers).
-	TestNGÊÇÒ»¸ö²âÊÔ¿ò¼Ü£¬Ö¼ÔÚ¼ò»¯¹ã·ºµÄ²âÊÔĞèÇó£¬´Óµ¥Ôª²âÊÔ(µ¥¶À²âÊÔÒ»¸öÀà)µ½¼¯³É²âÊÔ(²âÊÔÓÉ¼¸¸öÀà¡¢¼¸¸ö°üÉõÖÁ¼¸¸öÍâ²¿¿ò¼Ü×é³ÉµÄÕû¸öÏµÍ³,±ÈÈçÓ¦ÓÃ·şÎñÆ÷)
+	TestNGæ˜¯ä¸€ä¸ªæµ‹è¯•æ¡†æ¶ï¼Œæ—¨åœ¨ç®€åŒ–å¹¿æ³›çš„æµ‹è¯•éœ€æ±‚ï¼Œä»å•å…ƒæµ‹è¯•(å•ç‹¬æµ‹è¯•ä¸€ä¸ªç±»)åˆ°é›†æˆæµ‹è¯•(æµ‹è¯•ç”±å‡ ä¸ªç±»ã€å‡ ä¸ªåŒ…ç”šè‡³å‡ ä¸ªå¤–éƒ¨æ¡†æ¶ç»„æˆçš„æ•´ä¸ªç³»ç»Ÿ,æ¯”å¦‚åº”ç”¨æœåŠ¡å™¨)
 	Writing a test is typically a three-step process:
-	±àĞ´Ò»¸ö²âÊÔÍ¨³£ÊÇÒ»¸öÈı²½¹ı³Ì:
+	ç¼–å†™ä¸€ä¸ªæµ‹è¯•é€šå¸¸æ˜¯ä¸€ä¸ªä¸‰æ­¥è¿‡ç¨‹:
 		Write the business logic of your test and insert TestNG annotations in your code.
-		1.±àĞ´²âÊÔµÄÒµÎñÂß¼­£¬²¢ÔÚ´úÂëÖĞ²åÈëTestNG×¢ÊÍ¡£
+		1.ç¼–å†™æµ‹è¯•çš„ä¸šåŠ¡é€»è¾‘ï¼Œå¹¶åœ¨ä»£ç ä¸­æ’å…¥TestNGæ³¨é‡Šã€‚
 		Add the information about your test (e.g. the class name, the groups you wish to run, etc...) in a testng.xml file or in build.xml.
-		2.ÔÚtestng.xml»òÔÚbuild.xmlÎÄ¼şÖĞÌí¼Ó¹ØÓÚÄúµÄ²âÊÔµÄĞÅÏ¢(ÀıÈçÀàÃû¡¢ÄúÏ£ÍûÔËĞĞµÄ×é¡¢µÈµÈ¡£)
+		2.åœ¨testng.xmlæˆ–åœ¨build.xmlæ–‡ä»¶ä¸­æ·»åŠ å…³äºæ‚¨çš„æµ‹è¯•çš„ä¿¡æ¯(ä¾‹å¦‚ç±»åã€æ‚¨å¸Œæœ›è¿è¡Œçš„ç»„ã€ç­‰ç­‰ã€‚)
 		Run TestNG.
-		3.ÔËĞĞ
+		3.è¿è¡Œ
 	A TestNG test can be configured by @BeforeXXX and @AfterXXX annotations which allows to perform some Java logic before and after a certain point, these points being either of the items listed above.
-	Ò»¸öTestNG²âÊÔ¿ÉÒÔÍ¨¹ı@beforexxxºÍ@afterxxx½øĞĞÅäÖÃ£¬ËüÔÊĞíÔÚÄ³¸öµãÖ®Ç°ºÍÖ®ºóÖ´ĞĞÒ»Ğ©JavaÂß¼­£¬ÕâĞ©µãÊÇÉÏÃæÁĞ³öµÄÏîÄ¿ÖĞµÄÒ»¸ö¡£
+	ä¸€ä¸ªTestNGæµ‹è¯•å¯ä»¥é€šè¿‡@beforexxxå’Œ@afterxxxè¿›è¡Œé…ç½®ï¼Œå®ƒå…è®¸åœ¨æŸä¸ªç‚¹ä¹‹å‰å’Œä¹‹åæ‰§è¡Œä¸€äº›Javaé€»è¾‘ï¼Œè¿™äº›ç‚¹æ˜¯ä¸Šé¢åˆ—å‡ºçš„é¡¹ç›®ä¸­çš„ä¸€ä¸ªã€‚
 	The rest of this manual will explain the following:
-	±¾ÊÖ²áµÄÆäÓà²¿·Ö½«½âÊÍÒÔÏÂÄÚÈİ:
+	æœ¬æ‰‹å†Œçš„å…¶ä½™éƒ¨åˆ†å°†è§£é‡Šä»¥ä¸‹å†…å®¹:
 		A list of all the annotations with a brief explanation. This will give you an idea of the various functionalities offered by TestNG but you will probably want to consult the section dedicated to each of these annotations to learn the details.
-		Ò»¸ö¼ò¶ÌËµÃ÷µÄËùÓĞ×¢ÊÍµÄÁĞ±í¡£Õâ½«Ê¹ÄúÁË½âTestNGÌá¹©µÄ¸÷ÖÖ¹¦ÄÜ£¬µ«ÊÇÄú¿ÉÄÜĞèÒª²Î¿¼×¨ÓÃÓÚÕâĞ©×¢ÊÍµÄ²¿·ÖÀ´ÁË½âÏêÏ¸ĞÅÏ¢¡£
+		ä¸€ä¸ªç®€çŸ­è¯´æ˜çš„æ‰€æœ‰æ³¨é‡Šçš„åˆ—è¡¨ã€‚è¿™å°†ä½¿æ‚¨äº†è§£TestNGæä¾›çš„å„ç§åŠŸèƒ½ï¼Œä½†æ˜¯æ‚¨å¯èƒ½éœ€è¦å‚è€ƒä¸“ç”¨äºè¿™äº›æ³¨é‡Šçš„éƒ¨åˆ†æ¥äº†è§£è¯¦ç»†ä¿¡æ¯ã€‚
 		A description of the testng.xml file, its syntax and what you can specify in it.
-		¶Ôtestng.xmlÎÄ¼şµÄÃèÊö£¬ËüµÄÓï·¨£¬ÒÔ¼°Äú¿ÉÒÔÔÚÆäÖĞÖ¸¶¨µÄÄÚÈİ¡£
+		å¯¹testng.xmlæ–‡ä»¶çš„æè¿°ï¼Œå®ƒçš„è¯­æ³•ï¼Œä»¥åŠæ‚¨å¯ä»¥åœ¨å…¶ä¸­æŒ‡å®šçš„å†…å®¹ã€‚
 		A detailed list of the various features and how to use them with a combination of annotations and testng.xml.
-		¹ØÓÚ¸÷ÖÖÌØĞÔµÄÏêÏ¸ÁĞ±í£¬ÒÔ¼°ÈçºÎÍ¨¹ı×¢ÊÍºÍtestng.xmlµÄ×éºÏÀ´Ê¹ÓÃËüÃÇ¡£
+		å…³äºå„ç§ç‰¹æ€§çš„è¯¦ç»†åˆ—è¡¨ï¼Œä»¥åŠå¦‚ä½•é€šè¿‡æ³¨é‡Šå’Œtestng.xmlçš„ç»„åˆæ¥ä½¿ç”¨å®ƒä»¬ã€‚
 2.Annotations
 	Here is a quick overview of the annotations available in TestNG along with their attributes.
-	ÏÂÃæÊÇTestNGÖĞ¿ÉÓÃµÄ×¢ÊÍ¼°ÆäÊôĞÔµÄ¼òÒª¸ÅÊö¡£
+	ä¸‹é¢æ˜¯TestNGä¸­å¯ç”¨çš„æ³¨é‡ŠåŠå…¶å±æ€§çš„ç®€è¦æ¦‚è¿°ã€‚
 	@BeforeSuite: The annotated method will be run before all tests in this suite have run.
-	´øÕâ¸ö×¢ÊÍµÄ·½·¨½«ÔÚÕâ¸öÌ×¼şµÄËùÓĞ²âÊÔÔËĞĞÖ®Ç°ÔËĞĞ¡£
+	å¸¦è¿™ä¸ªæ³¨é‡Šçš„æ–¹æ³•å°†åœ¨è¿™ä¸ªå¥—ä»¶çš„æ‰€æœ‰æµ‹è¯•è¿è¡Œä¹‹å‰è¿è¡Œã€‚
 	@AfterSuite: The annotated method will be run after all tests in this suite have run.
-	ÔÚÕâ¸öÌ×¼şÖĞËùÓĞµÄ²âÊÔÔËĞĞÖ®ºó£¬×¢ÊÍµÄ·½·¨½«±»ÔËĞĞ¡£
+	åœ¨è¿™ä¸ªå¥—ä»¶ä¸­æ‰€æœ‰çš„æµ‹è¯•è¿è¡Œä¹‹åï¼Œæ³¨é‡Šçš„æ–¹æ³•å°†è¢«è¿è¡Œã€‚
 	@BeforeTest: The annotated method will be run before any test method belonging to the classes inside the <test> tag is run. 
-	´øÕâ¸ö×¢ÊÍµÄ·½·¨½«ÔÚ<test>±êÇ©ÖĞËùÓĞÀàµÄ²âÊÔ·½·¨Ö®Ç°ÔËĞĞ¡£
+	å¸¦è¿™ä¸ªæ³¨é‡Šçš„æ–¹æ³•å°†åœ¨<test>æ ‡ç­¾ä¸­æ‰€æœ‰ç±»çš„æµ‹è¯•æ–¹æ³•ä¹‹å‰è¿è¡Œã€‚ 
 	@AfterTest: The annotated method will be run after all the test methods belonging to the classes inside the <test> tag have run. 
-	´øÕâ¸ö×¢ÊÍµÄ·½·¨½«ÔÚ<test>±êÇ©ÖĞËùÓĞÀàµÄ²âÊÔ·½·¨Ö®ºóÔËĞĞ¡£
+	å¸¦è¿™ä¸ªæ³¨é‡Šçš„æ–¹æ³•å°†åœ¨<test>æ ‡ç­¾ä¸­æ‰€æœ‰ç±»çš„æµ‹è¯•æ–¹æ³•ä¹‹åè¿è¡Œã€‚
 	@BeforeGroups: The list of groups that this configuration method will run before. This method is guaranteed to run shortly before the first test method that belongs to any of these groups is invoked. 
-	Õâ¸öÅäÖÃ·½·¨½«ÔÚÇ°ÃæÔËĞĞµÄ×éÁĞ±í¡£¸Ã·½·¨±£Ö¤ÔÚµ÷ÓÃÕâĞ©×éµÄµÚÒ»¸ö²âÊÔ·½·¨Ö®Ç°ÔËĞĞ¡£
+	è¿™ä¸ªé…ç½®æ–¹æ³•å°†åœ¨å‰é¢è¿è¡Œçš„ç»„åˆ—è¡¨ã€‚è¯¥æ–¹æ³•ä¿è¯åœ¨è°ƒç”¨è¿™äº›ç»„çš„ç¬¬ä¸€ä¸ªæµ‹è¯•æ–¹æ³•ä¹‹å‰è¿è¡Œã€‚
 	@BeforeClass: The annotated method will be run before the first test method in the current class is invoked. 
-	´øÕâ¸ö×¢ÊÍµÄ·½·¨½«ÔÚµ÷ÓÃµ±Ç°ÀàµÄµÚÒ»¸ö²âÊÔ·½·¨Ö®Ç°ÔËĞĞ¡£
+	å¸¦è¿™ä¸ªæ³¨é‡Šçš„æ–¹æ³•å°†åœ¨è°ƒç”¨å½“å‰ç±»çš„ç¬¬ä¸€ä¸ªæµ‹è¯•æ–¹æ³•ä¹‹å‰è¿è¡Œã€‚
 	@AfterClass: The annotated method will be run after all the test methods in the current class have been run. 
-	×¢ÊÍ·½·¨½«ÔÚÔËĞĞµ±Ç°ÀàµÄËùÓĞ²âÊÔ·½·¨Ö®ºóÔËĞĞ¡£
+	æ³¨é‡Šæ–¹æ³•å°†åœ¨è¿è¡Œå½“å‰ç±»çš„æ‰€æœ‰æµ‹è¯•æ–¹æ³•ä¹‹åè¿è¡Œã€‚
 	@BeforeMethod: The annotated method will be run before each test method. 
-	´ø×¢ÊÍµÄ·½·¨½«ÔÚÃ¿¸ö²âÊÔ·½·¨Ö®Ç°ÔËĞĞ¡£
+	å¸¦æ³¨é‡Šçš„æ–¹æ³•å°†åœ¨æ¯ä¸ªæµ‹è¯•æ–¹æ³•ä¹‹å‰è¿è¡Œã€‚
 	@AfterMethod: The annotated method will be run after each test method.
-	´ø×¢ÊÍµÄ·½·¨½«ÔÚÃ¿¸ö²âÊÔ·½·¨Ö®ºóÔËĞĞ¡£
+	å¸¦æ³¨é‡Šçš„æ–¹æ³•å°†åœ¨æ¯ä¸ªæµ‹è¯•æ–¹æ³•ä¹‹åè¿è¡Œã€‚
 		Behaviour of annotations in superclass of a TestNG class
-		TestNGÀà³¬ÀàÖĞµÄ×¢ÊÍĞĞÎª
+		TestNGç±»è¶…ç±»ä¸­çš„æ³¨é‡Šè¡Œä¸º
 		The annotations above will also be honored (inherited) when placed on a superclass of a TestNG class. This is useful for example to centralize test setup for multiple test classes in a common superclass.
-		ÉÏÃæµÄ×¢ÊÍÒ²½«±»·ÅÔÚTestNGÀàµÄ³¬ÀàÖĞ(¼Ì³Ğ)¡£ÕâºÜÓĞÓÃ£¬ÀıÈçÔÚÒ»¸ö¹«¹²³¬ÀàÖĞ¶Ô¶à¸ö²âÊÔÀà¼¯ÖĞ²âÊÔÉèÖÃ¡£
+		ä¸Šé¢çš„æ³¨é‡Šä¹Ÿå°†è¢«æ”¾åœ¨TestNGç±»çš„è¶…ç±»ä¸­(ç»§æ‰¿)ã€‚è¿™å¾ˆæœ‰ç”¨ï¼Œä¾‹å¦‚åœ¨ä¸€ä¸ªå…¬å…±è¶…ç±»ä¸­å¯¹å¤šä¸ªæµ‹è¯•ç±»é›†ä¸­æµ‹è¯•è®¾ç½®ã€‚
 		In that case, TestNG guarantees that the "@Before" methods are executed in inheritance order (highest superclass first, then going down the inheritance chain), and the "@After" methods in reverse order (going up the inheritance chain).
-		ÔÚÕâÖÖÇé¿öÏÂ£¬TestNG±£Ö¤¡°@before¡±·½·¨ÒÔ¼Ì³ĞË³ĞòÖ´ĞĞ(Ê×ÏÈÊÇ×î¸ß³¬Àà£¬È»ºóÊÇ¼Ì³Ğ¼Ì³ĞÁ´)£¬È»ºóÊÇ¡°@after¡±·½·¨(ÏòÉÏ¼Ì³Ğ¼Ì³ĞÁ´)¡£
+		åœ¨è¿™ç§æƒ…å†µä¸‹ï¼ŒTestNGä¿è¯â€œ@beforeâ€æ–¹æ³•ä»¥ç»§æ‰¿é¡ºåºæ‰§è¡Œ(é¦–å…ˆæ˜¯æœ€é«˜è¶…ç±»ï¼Œç„¶åæ˜¯ç»§æ‰¿ç»§æ‰¿é“¾)ï¼Œç„¶åæ˜¯â€œ@afterâ€æ–¹æ³•(å‘ä¸Šç»§æ‰¿ç»§æ‰¿é“¾)ã€‚
 		alwaysRun -- For before methods (beforeSuite, beforeTest, beforeTestClass and beforeTestMethod, but not beforeGroups): If set to true, this configuration method will be run regardless of what groups it belongs to. 
-		¶ÔÓÚÖ®Ç°µÄ·½·¨(beÏÈÕ×£¬beÏÈÕ×£¬Ç°testclassºÍbefore testmethod£¬¶ø²»ÊÇÇ°×é):Èç¹ûÉèÖÃÎªtrue£¬Õâ¸öÅäÖÃ·½·¨½«±»ÔËĞĞ£¬²»¹ÜËüÊôÓÚÄÄ¸ö×é¡£
+		å¯¹äºä¹‹å‰çš„æ–¹æ³•(beå…ˆå…†ï¼Œbeå…ˆå…†ï¼Œå‰testclasså’Œbefore testmethodï¼Œè€Œä¸æ˜¯å‰ç»„):å¦‚æœè®¾ç½®ä¸ºtrueï¼Œè¿™ä¸ªé…ç½®æ–¹æ³•å°†è¢«è¿è¡Œï¼Œä¸ç®¡å®ƒå±äºå“ªä¸ªç»„ã€‚
 		For after methods (afterSuite, afterClass, ...): If set to true, this configuration method will be run even if one or more methods invoked previously failed or was skipped.
-		¶ÔÓÚafter·½·¨(afterSuite¡¢afterClass¡¢¡­):Èç¹ûÉèÖÃÎªtrue£¬ÄÇÃ´¼´Ê¹µ÷ÓÃÏÈÇ°Ê§°Ü»òÌø¹ıµÄÒ»¸ö»ò¶à¸ö·½·¨£¬Ò²»áÔËĞĞ¸ÃÅäÖÃ·½·¨¡£
+		å¯¹äºafteræ–¹æ³•(afterSuiteã€afterClassã€â€¦):å¦‚æœè®¾ç½®ä¸ºtrueï¼Œé‚£ä¹ˆå³ä½¿è°ƒç”¨å…ˆå‰å¤±è´¥æˆ–è·³è¿‡çš„ä¸€ä¸ªæˆ–å¤šä¸ªæ–¹æ³•ï¼Œä¹Ÿä¼šè¿è¡Œè¯¥é…ç½®æ–¹æ³•ã€‚
 		dependsOnGroups -- The list of groups this method depends on.
-		Õâ¸ö·½·¨µÄ×éÁĞ±íÒÀÀµÓÚ¡£
+		è¿™ä¸ªæ–¹æ³•çš„ç»„åˆ—è¡¨ä¾èµ–äºã€‚
 		dependsOnMethods -- The list of methods this method depends on.
-		Õâ¸ö·½·¨ËùÒÀÀµµÄ·½·¨ÁĞ±í¡£
+		è¿™ä¸ªæ–¹æ³•æ‰€ä¾èµ–çš„æ–¹æ³•åˆ—è¡¨ã€‚
 		enabled -- Whether methods on this class/method are enabled.
-		ÊÇ·ñÆôÓÃÁËÕâ¸öÀà/·½·¨µÄ·½·¨¡£
+		æ˜¯å¦å¯ç”¨äº†è¿™ä¸ªç±»/æ–¹æ³•çš„æ–¹æ³•ã€‚
 		groups -- The list of groups this class/method belongs to.
-		Õâ¸öÀà/·½·¨µÄ×éÁĞ±íÊôÓÚ¡£
+		è¿™ä¸ªç±»/æ–¹æ³•çš„ç»„åˆ—è¡¨å±äºã€‚
 		inheritGroups -- If true, this method will belong to groups specified in the @Test annotation at the class level.
-		Èç¹ûÊÇÕıÈ·µÄ£¬Õâ¸ö·½·¨½«ÊôÓÚÔÚÀà¼¶±ğµÄ@test×¢ÊÍÖĞÖ¸¶¨µÄ×é¡£
+		å¦‚æœæ˜¯æ­£ç¡®çš„ï¼Œè¿™ä¸ªæ–¹æ³•å°†å±äºåœ¨ç±»çº§åˆ«çš„@testæ³¨é‡Šä¸­æŒ‡å®šçš„ç»„ã€‚
 	@DataProvider -- Marks a method as supplying data for a test method. The annotated method must return an Object[][] where each Object[] can be assigned the parameter list of the test method. The @Test method that wants to receive data from this DataProvider needs to use a dataProvider name equals to the name of this annotation.
-    ±ê¼ÇÒ»ÖÖÎª²âÊÔ·½·¨Ìá¹©Êı¾İµÄ·½·¨¡£´ø×¢ÊÍµÄ·½·¨±ØĞë·µ»ØÒ»¸ö¶ÔÏó£¬ÆäÖĞÃ¿¸ö¶ÔÏó¶¼¿ÉÒÔ±»·ÖÅä²âÊÔ·½·¨µÄ²ÎÊıÁĞ±í¡£ÏëÒª´ÓÕâ¸öDataProvider½ÓÊÕÊı¾İµÄ@test·½·¨Ğè	   ÒªÊ¹ÓÃÒ»¸öDataProviderÃû³ÆµÈÓÚÕâ¸ö×¢ÊÍµÄÃû³Æ¡£
+    æ ‡è®°ä¸€ç§ä¸ºæµ‹è¯•æ–¹æ³•æä¾›æ•°æ®çš„æ–¹æ³•ã€‚å¸¦æ³¨é‡Šçš„æ–¹æ³•å¿…é¡»è¿”å›ä¸€ä¸ªå¯¹è±¡ï¼Œå…¶ä¸­æ¯ä¸ªå¯¹è±¡éƒ½å¯ä»¥è¢«åˆ†é…æµ‹è¯•æ–¹æ³•çš„å‚æ•°åˆ—è¡¨ã€‚æƒ³è¦ä»è¿™ä¸ªDataProvideræ¥æ”¶æ•°æ®çš„@testæ–¹æ³•éœ€	   è¦ä½¿ç”¨ä¸€ä¸ªDataProvideråç§°ç­‰äºè¿™ä¸ªæ³¨é‡Šçš„åç§°ã€‚
 		name -- The name of this data provider. If it's not supplied, the name of this data provider will automatically be set to the name of the method.
-		Õâ¸öÊı¾İÌá¹©ÕßµÄÃû×Ö¡£Èç¹ûÃ»ÓĞÌá¹©£¬Õâ¸öÊı¾İÌá¹©³ÌĞòµÄÃû³Æ½«×Ô¶¯±»ÉèÖÃÎª¸Ã·½·¨µÄÃû³Æ¡£
-		parallel -- Èç¹ûÉèÖÃÎªtrue£¬Ê¹ÓÃ´ËÊı¾İÌá¹©³ÌĞòÉú³ÉµÄ²âÊÔ½«²¢ĞĞÔËĞĞ¡£Ä¬ÈÏÖµÊÇ´íÎóµÄ¡£
+		è¿™ä¸ªæ•°æ®æä¾›è€…çš„åå­—ã€‚å¦‚æœæ²¡æœ‰æä¾›ï¼Œè¿™ä¸ªæ•°æ®æä¾›ç¨‹åºçš„åç§°å°†è‡ªåŠ¨è¢«è®¾ç½®ä¸ºè¯¥æ–¹æ³•çš„åç§°ã€‚
+		parallel -- å¦‚æœè®¾ç½®ä¸ºtrueï¼Œä½¿ç”¨æ­¤æ•°æ®æä¾›ç¨‹åºç”Ÿæˆçš„æµ‹è¯•å°†å¹¶è¡Œè¿è¡Œã€‚é»˜è®¤å€¼æ˜¯é”™è¯¯çš„ã€‚
 	@Factory -- Marks a method as a factory that returns objects that will be used by TestNG as Test classes. The method must return Object[].
-	½«Ò»¸ö·½·¨±ê¼ÇÎªÒ»¸ö¹¤³§£¬¸Ã·½·¨·µ»ØTestNG×÷Îª²âÊÔÀàÊ¹ÓÃµÄ¶ÔÏó¡£¸Ã·½·¨±ØĞë·µ»Ø¶ÔÏó¡£
+	å°†ä¸€ä¸ªæ–¹æ³•æ ‡è®°ä¸ºä¸€ä¸ªå·¥å‚ï¼Œè¯¥æ–¹æ³•è¿”å›TestNGä½œä¸ºæµ‹è¯•ç±»ä½¿ç”¨çš„å¯¹è±¡ã€‚è¯¥æ–¹æ³•å¿…é¡»è¿”å›å¯¹è±¡ã€‚
 	@Listeners -- Defines listeners on a test class.
-	ÔÚ²âÊÔÀàÖĞ¶¨ÒåÕìÌıÆ÷¡£
+	åœ¨æµ‹è¯•ç±»ä¸­å®šä¹‰ä¾¦å¬å™¨ã€‚
 		value -- An array of classes that extend org.testng.ITestNGListener.
-		Ò»¸öÀà,À©Õ¹org.testng.ITestNGListenerÊı×é¡£
+		ä¸€ä¸ªç±»,æ‰©å±•org.testng.ITestNGListeneræ•°ç»„ã€‚
 	@Parameters -- Describes how to pass parameters to a @Test method.
-	ÃèÊöÈçºÎ½«²ÎÊı´«µİ¸ø@test·½·¨¡£
+	æè¿°å¦‚ä½•å°†å‚æ•°ä¼ é€’ç»™@testæ–¹æ³•ã€‚
 		value -- The list of variables used to fill the parameters of this method.
-		ÓÃÓÚÌî³ä¸Ã·½·¨²ÎÊıµÄ±äÁ¿ÁĞ±í¡£
+		ç”¨äºå¡«å……è¯¥æ–¹æ³•å‚æ•°çš„å˜é‡åˆ—è¡¨ã€‚
 	@Test -- Marks a class or a method as part of the test.
-	½«Àà»ò·½·¨±ê¼ÇÎª²âÊÔµÄÒ»²¿·Ö¡£
+	å°†ç±»æˆ–æ–¹æ³•æ ‡è®°ä¸ºæµ‹è¯•çš„ä¸€éƒ¨åˆ†ã€‚
 	alwaysRun -- If set to true, this test method will always be run even if it depends on a method that failed.
-	Èç¹ûÉèÖÃÎªtrue£¬Õâ¸ö²âÊÔ·½·¨½«Ê¼ÖÕÔËĞĞ£¬¼´Ê¹ËüÒÀÀµÓÚÊ§°ÜµÄ·½·¨¡£
+	å¦‚æœè®¾ç½®ä¸ºtrueï¼Œè¿™ä¸ªæµ‹è¯•æ–¹æ³•å°†å§‹ç»ˆè¿è¡Œï¼Œå³ä½¿å®ƒä¾èµ–äºå¤±è´¥çš„æ–¹æ³•ã€‚
 	dataProvider -- The name of the data provider for this test method.
-	Õâ¸ö²âÊÔ·½·¨µÄÊı¾İÌá¹©³ÌĞòµÄÃû³Æ¡£
+	è¿™ä¸ªæµ‹è¯•æ–¹æ³•çš„æ•°æ®æä¾›ç¨‹åºçš„åç§°ã€‚
 	dataProviderClass -- The class where to look for the data provider. If not specified, the data provider will be looked on the class of the current test method or one of its base classes. If this attribute is specified, the data provider method needs to be static on the specified class.
-	²éÕÒÊı¾İÌá¹©³ÌĞòµÄÀà¡£Èç¹ûÃ»ÓĞÖ¸¶¨£¬Êı¾İÌá¹©Õß½«±»²é¿´µ±Ç°²âÊÔ·½·¨µÄÀà»òËüµÄÒ»¸ö»ùÀà¡£Èç¹ûÖ¸¶¨ÁË¸ÃÊôĞÔ£¬ÔòÊı¾İÌá¹©Õß·½·¨ĞèÒªÔÚÖ¸¶¨µÄÀàÉÏ±£³Ö¾²Ì¬¡£
+	æŸ¥æ‰¾æ•°æ®æä¾›ç¨‹åºçš„ç±»ã€‚å¦‚æœæ²¡æœ‰æŒ‡å®šï¼Œæ•°æ®æä¾›è€…å°†è¢«æŸ¥çœ‹å½“å‰æµ‹è¯•æ–¹æ³•çš„ç±»æˆ–å®ƒçš„ä¸€ä¸ªåŸºç±»ã€‚å¦‚æœæŒ‡å®šäº†è¯¥å±æ€§ï¼Œåˆ™æ•°æ®æä¾›è€…æ–¹æ³•éœ€è¦åœ¨æŒ‡å®šçš„ç±»ä¸Šä¿æŒé™æ€ã€‚
 	dependsOnGroups -- The list of groups this method depends on. 
-	Õâ¸ö·½·¨µÄ×éÁĞ±íÒÀÀµÓÚ¡£
+	è¿™ä¸ªæ–¹æ³•çš„ç»„åˆ—è¡¨ä¾èµ–äºã€‚
 	dependsOnMethods -- The list of groups this method depends on.
-	Õâ¸ö·½·¨µÄ×éÁĞ±íÒÀÀµÓÚ¡£
+	è¿™ä¸ªæ–¹æ³•çš„ç»„åˆ—è¡¨ä¾èµ–äºã€‚
 	description -- The description for this method.
-	Õâ¸ö·½·¨µÄÃèÊö¡£
+	è¿™ä¸ªæ–¹æ³•çš„æè¿°ã€‚
 	enabled -- Whether methods on this class/method are enabled.
-	ÊÇ·ñÆôÓÃÁËÕâ¸öÀà/·½·¨µÄ·½·¨¡£
+	æ˜¯å¦å¯ç”¨äº†è¿™ä¸ªç±»/æ–¹æ³•çš„æ–¹æ³•ã€‚
 	expectedExceptions -- The list of exceptions that a test method is expected to throw. If no exception or a different than one on this list is thrown, this test will be marked a failure.
-	²âÊÔ·½·¨±»ÆÚÍûÅ×³öµÄÒì³£ÁĞ±í¡£Èç¹ûÅ×³öÕâ¸öÁĞ±íÖĞÃ»ÓĞÒ»¸öÒì³£»òÒ»¸ö²»Í¬µÄ£¬Õâ¸ö²âÊÔ½«±»±ê¼ÇÎªÒ»¸öÊ§°Ü¡£
+	æµ‹è¯•æ–¹æ³•è¢«æœŸæœ›æŠ›å‡ºçš„å¼‚å¸¸åˆ—è¡¨ã€‚å¦‚æœæŠ›å‡ºè¿™ä¸ªåˆ—è¡¨ä¸­æ²¡æœ‰ä¸€ä¸ªå¼‚å¸¸æˆ–ä¸€ä¸ªä¸åŒçš„ï¼Œè¿™ä¸ªæµ‹è¯•å°†è¢«æ ‡è®°ä¸ºä¸€ä¸ªå¤±è´¥ã€‚
 	groups -- The list of groups this class/method belongs to.
-	Õâ¸öÀà/·½·¨µÄ×éÁĞ±íÊôÓÚ¡£
+	è¿™ä¸ªç±»/æ–¹æ³•çš„ç»„åˆ—è¡¨å±äºã€‚
 	invocationCount --	The number of times this method should be invoked.
-	Ó¦¸Ãµ÷ÓÃ¸Ã·½·¨µÄ´ÎÊı¡£
+	åº”è¯¥è°ƒç”¨è¯¥æ–¹æ³•çš„æ¬¡æ•°ã€‚
 	invocationTimeOut -- The maximum number of milliseconds this test should take for the cumulated time of all the invocationcounts. This attribute will be ignored if invocationCount is not specified.
-	Õâ¸ö²âÊÔµÄ×î´óºÁÃëÊıÓ¦¸ÃÔÚËùÓĞµÄµ÷ÓÃ¼ÆÊıµÄÀÛ»ıÊ±¼äÄÚ¡£Èç¹ûÃ»ÓĞÖ¸¶¨µ÷ÓÃ¼ÆÊı£¬Õâ¸öÊôĞÔ½«±»ºöÂÔ¡£
+	è¿™ä¸ªæµ‹è¯•çš„æœ€å¤§æ¯«ç§’æ•°åº”è¯¥åœ¨æ‰€æœ‰çš„è°ƒç”¨è®¡æ•°çš„ç´¯ç§¯æ—¶é—´å†…ã€‚å¦‚æœæ²¡æœ‰æŒ‡å®šè°ƒç”¨è®¡æ•°ï¼Œè¿™ä¸ªå±æ€§å°†è¢«å¿½ç•¥ã€‚
 	priority -- The priority for this test method. Lower priorities will be scheduled first.
-	Õâ¸ö²âÊÔ·½·¨µÄÓÅÏÈ¼¶¡£½ÏµÍµÄÓÅÏÈ¼¶½«ÓÅÏÈ°²ÅÅ¡£
+	è¿™ä¸ªæµ‹è¯•æ–¹æ³•çš„ä¼˜å…ˆçº§ã€‚è¾ƒä½çš„ä¼˜å…ˆçº§å°†ä¼˜å…ˆå®‰æ’ã€‚
 	successPercentage -- The percentage of success expected from this method
-	´ÓÕâ¸ö·½·¨ÖĞ»ñµÃµÄ³É¹¦µÄ°Ù·Ö±È
-	singleThreaded -- If set to true, all the methods on this test class are guaranteed to run in the same thread, even if the tests are currently being run with parallel="methods". This attribute can only be used at the class level and it will be ignored if used at the method level. Note: this attribute used to be called sequential (now deprecated).
-	Èç¹ûÉèÖÃÎªtrue£¬ÄÇÃ´Õâ¸ö²âÊÔÀàÖĞµÄËùÓĞ·½·¨¶¼½«±£Ö¤ÔÚÍ¬Ò»¸öÏß³ÌÖĞÔËĞĞ£¬¼´Ê¹µ±Ç°²âÊÔÊÇÓÃ²¢ĞĞ=¡°·½·¨¡±ÔËĞĞµÄ¡£Õâ¸öÊôĞÔÖ»ÄÜÔÚÀà¼¶±ğÊ¹ÓÃ£¬Èç¹ûÔÚ·½·¨¼¶±ğÊ¹ÓÃ£¬Ëü½«±»ºöÂÔ¡£×¢Òâ:Õâ¸öÊôĞÔ¹ıÈ¥±»³ÆÎªĞòÁĞ(ÏÖÔÚÒÑ±»ÆúÓÃ)¡£
-	timeOut -- The maximum number of milliseconds this test should take.
-	Õâ¸ö²âÊÔµÄ×î´óºÁÃëÊıÓ¦¸ÃÊÇ¶àÉÙ¡£
-	threadPoolSize -- The size of the thread pool for this method. The method will be invoked from multiple threads as specified by invocationCount. 
-	Note: this attribute is ignored if invocationCount is not specified
-	Õâ¸ö·½·¨µÄÏß³Ì³ØµÄ´óĞ¡¡£¸Ã·½·¨½«´Ó¶à¸öÏß³ÌÖĞµ÷ÓÃ£¬ÕâÊÇÓÉµ÷ÓÃ¼ÆÊıÖ¸¶¨µÄ¡£
- 3 - testng.xml
-	You can invoke TestNG in several different ways:
-	Äú¿ÉÒÔÓÃ¼¸ÖÖ²»Í¬µÄ·½Ê½µ÷ÓÃTestNG:
-	With a testng.xml file
-	With ant
-	From the command line
-	This section describes the format of testng.xml (you will find documentation on ant and the command line below).
-	±¾½ÚÃèÊötestng.xmlµÄ¸ñÊ½(Äú½«ÔÚantºÍÏÂÃæµÄÃüÁîĞĞÕÒµ½ÎÄµµ)¡£
-	The current DTD for testng. You can find XML on the main Web site :testng-1.0. DTD (for convenience, you might prefer to browse the HTML version).
-	ÓÃÓÚtestngµÄµ±Ç°DTD¡£¿ÉÒÔÔÚÖ÷WebÕ¾µãÉÏÕÒµ½xml:testng-1.0¡£dtd(ÎªÁË·½±ã£¬Äú¿ÉÄÜ¸üÏ²»¶ä¯ÀÀHTML°æ±¾)¡£
-	Here is an example testng.xml file:
-	ÏÂÃæÊÇÒ»¸ötestng.xmlÎÄ¼şÊ¾Àı:
-	<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-	<suite name="Suite1" verbose="1" >
-	  <test name="Nopackage" >
-		<classes>
-		   <class name="NoPackageTest" />
-		</classes>
-	  </test>
-	  <test name="Regression1">
-		<classes>
-		  <class name="test.sample.ParameterSample"/>
-		  <class name="test.sample.ParameterTest"/>
-		</classes>
-	  </test>
-	</suite>
-	You can specify package names instead of class names:
-	Äú¿ÉÒÔÖ¸¶¨°üÃû¶ø²»ÊÇÀàÃû:
-	
-	<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-	<suite name="Suite1" verbose="1" >
-	  <test name="Regression1"   >
-		<packages>
-		  <package name="test.sample" />
-	   </packages>
-	 </test>
-	</suite>
-	
-	In this example, TestNG will look at all the classes in the package test.sample and will retain only classes that have TestNG annotations.
-	ÔÚ±¾ÀıÖĞ£¬TestNG½«²é¿´°ü²âÊÔÖĞµÄËùÓĞÀà¡£Ê¾ÀıºÍ½«½ö±£Áô¾ßÓĞTestNG×¢ÊÍµÄÀà¡£
-	You can also specify groups and methods to be included and excluded:
-	Äú»¹¿ÉÒÔÖ¸¶¨±»°üÀ¨ºÍÅÅ³ıµÄ×éºÍ·½·¨:
-	
-	<test name="Regression1">
-	  <groups>
-		<run>
-		  <exclude name="brokenTests"  />
-		  <include name="checkinTests"  />
-		</run>
-	  </groups>
-	  
-	  <classes>
-		<class name="test.IndividualMethodsTest">
-		  <methods>
-			<include name="testMethod" />
-		  </methods>
-		</class>
-	  </classes>
-	</test>
-
-	You can also define new groups inside testng.xml and specify additional details in attributes, such as whether to run the tests in parallel, how many threads to use, whether you are running JUnit tests, etc... 
-	Äú»¹¿ÉÒÔÔÚtestngÖĞ¶¨ÒåĞÂµÄ×é¡£xml²¢ÔÚÊôĞÔÖĞÖ¸¶¨¸½¼ÓµÄÏ¸½Ú£¬ÀıÈçÊÇ·ñÒª²¢ĞĞÔËĞĞ²âÊÔ£¬ÒªÊ¹ÓÃ¶àÉÙÏß³Ì£¬ÊÇ·ñÔËĞĞJUnit²âÊÔµÈµÈ¡£
-	By default, TestNG will run your tests in the order they are found in the XML file. If you want the classes and methods listed in this file to be run in an unpredictable order, set the preserve-order attribute to false
-	Ä¬ÈÏÇé¿öÏÂ£¬TestNG½«°´ÕÕÔÚXMLÎÄ¼şÖĞÕÒµ½µÄË³ĞòÔËĞĞÄúµÄ²âÊÔ¡£Èç¹ûÄúÏ£ÍûÔÚ¸ÃÎÄ¼şÖĞÁĞ³öµÄÀàºÍ·½·¨ÒÔ²»¿ÉÔ¤ÖªµÄË³ĞòÔËĞĞ£¬ÄÇÃ´½«±£»¤-orderÊôĞÔÉèÖÃÎªfalse
-	
-	<test name="Regression1" preserve-order="false">
-	  <classes>
-	 
-		<class name="test.Test1">
-		  <methods>
-			<include name="m1" />
-			<include name="m2" />
-		  </methods>
-		</class>
-	 
-		<class name="test.Test2" />
-	 
-	  </classes>
-	</test>
-	
-	Please see the DTD for a complete list of the features, or read on.
-	Çë²ÎÔÄDTDÒÔ»ñµÃÍêÕûµÄÌØĞÔÁĞ±í£¬»òÕßÔÄ¶Á¡£
+	ä»è¿™ä¸ªæ–¹æ³•ä¸­è·å¾—çš„æˆåŠŸçš„ç™¾åˆ†æ¯”
+	singleThreaded -- If set to true, all the methods on this test class are guaranteed to run in the same thread, even if the tests are currently being run with parallel="methods". This attribute can only be used at the class level and it will be ignored if used at the method level. 
