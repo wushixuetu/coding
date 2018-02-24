@@ -103,4 +103,7 @@
 	这个测试方法的优先级。较低的优先级将优先安排。
 	successPercentage -- The percentage of success expected from this method
 	从这个方法中获得的成功的百分比
-	singleThreaded -- If set to true, all the methods on this test class are guaranteed to run in the same thread, even if the tests are currently being run with parallel="methods". This attribute can only be used at the class level and it will be ignored if used at the method level. 
+	singleThreaded -- If set to true, all the methods on this test class are guaranteed to run in the same thread, even if the tests are currently being run with parallel="methods". This attribute can only be used at the class level and it will be ignored if used at the method level. Note: this attribute used to be called sequential (now deprecated).
+	如果设置为true，那么这个测试类中的所有方法都将保证在同一个线程中运行，即使当前测试是用并行=“方法”运行的。这个属性只能在类级别使用，如果在方	 法级别使用，它将被忽略。注意:这个属性过去被称为序列(现在已被弃用)。
+	
+	
