@@ -1,4 +1,4 @@
-1,介 绍
+1,介绍
 	TestNG is a testing framework designed to simplify a broad range of testing needs, from unit testing (testing a class in isolation of the others) to integration testing (testing entire systems made of several classes, several packages and even several external frameworks, such as application servers).
 	TestNG是一个测试框架，旨在简化广泛的测试需求，从单元测试(单独测试一个类)到集成测试(测试由几个类、几个包甚至几个外部框架组成的整个系统,比如应用服务器)
 	Writing a test is typically a three-step process:
@@ -27,7 +27,7 @@
 	@AfterSuite: The annotated method will be run after all tests in this suite have run.
 	在这个套件中所有的测试运行之后，注释的方法将被运行。
 	@BeforeTest: The annotated method will be run before any test method belonging to the classes inside the <test> tag is run. 
-	带这个注释的方法将在<test>标签中所有类的测试方法之前运行。 
+	带这个注释的方法将在<test>标签中所有类的测试方法之前运行。
 	@AfterTest: The annotated method will be run after all the test methods belonging to the classes inside the <test> tag have run. 
 	带这个注释的方法将在<test>标签中所有类的测试方法之后运行。
 	@BeforeGroups: The list of groups that this configuration method will run before. This method is guaranteed to run shortly before the first test method that belongs to any of these groups is invoked. 
@@ -104,7 +104,91 @@
 	successPercentage -- The percentage of success expected from this method
 	从这个方法中获得的成功的百分比
 	singleThreaded -- If set to true, all the methods on this test class are guaranteed to run in the same thread, even if the tests are currently being run with parallel="methods". This attribute can only be used at the class level and it will be ignored if used at the method level. Note: this attribute used to be called sequential (now deprecated).
-	如果设置为true，那么这个测试类中的所有方法都将保证在同一个线程中运行，即使当前测试是用并行=“方法”运行的。这个属性只能在类级别使用，如果在方	 法级别使用，它将被忽略。注意:这个属性过去被称为序列(现在已被弃用)。
-	
+	如果设置为true，那么这个测试类中的所有方法都将保证在同一个线程中运行，即使当前测试是用并行=“方法”运行的。这个属性只能在类级别使用，如果在方法级别使用，它将被忽略。注意:这个属性过去被称为序列(现在已被弃用)。
 	timeOut -- The maximum number of milliseconds this test should take.
 	这个测试的最大毫秒数应该是多少。
+	threadPoolSize -- The size of the thread pool for this method. The method will be invoked from multiple threads as specified by invocationCount. 
+	Note: this attribute is ignored if invocationCount is not specified
+	这个方法的线程池的大小。该方法将从多个线程中调用，这是由调用计数指定的。
+ 3 - testng.xml
+	You can invoke TestNG in several different ways:
+	您可以用几种不同的方式调用TestNG:
+	With a testng.xml file
+	With ant
+	From the command line
+	This section describes the format of testng.xml (you will find documentation on ant and the command line below).
+	本节描述testng.xml的格式(您将在ant和下面的命令行找到文档)。
+	The current DTD for testng. You can find XML on the main Web site :testng-1.0. DTD (for convenience, you might prefer to browse the HTML version).
+	用于testng的当前DTD。可以在主Web站点上找到xml:testng-1.0。dtd(为了方便，您可能更喜欢浏览HTML版本)。
+	Here is an example testng.xml file:
+	下面是一个testng.xml文件示例:
+	<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+	<suite name="Suite1" verbose="1" >
+	  <test name="Nopackage" >
+		<classes>
+		   <class name="NoPackageTest" />
+		</classes>
+	  </test>
+	  <test name="Regression1">
+		<classes>
+		  <class name="test.sample.ParameterSample"/>
+		  <class name="test.sample.ParameterTest"/>
+		</classes>
+	  </test>
+	</suite>
+	You can specify package names instead of class names:
+	您可以指定包名而不是类名:
+	
+	<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+	<suite name="Suite1" verbose="1" >
+	  <test name="Regression1"   >
+		<packages>
+		  <package name="test.sample" />
+	   </packages>
+	 </test>
+	</suite>
+	
+	In this example, TestNG will look at all the classes in the package test.sample and will retain only classes that have TestNG annotations.
+	在本例中，TestNG将查看包测试中的所有类。示例和将仅保留具有TestNG注释的类。
+	You can also specify groups and methods to be included and excluded:
+	您还可以指定被包括和排除的组和方法:
+	
+	<test name="Regression1">
+	  <groups>
+		<run>
+		  <exclude name="brokenTests"  />
+		  <include name="checkinTests"  />
+		</run>
+	  </groups>
+	  
+	  <classes>
+		<class name="test.IndividualMethodsTest">
+		  <methods>
+			<include name="testMethod" />
+		  </methods>
+		</class>
+	  </classes>
+	</test>
+
+	You can also define new groups inside testng.xml and specify additional details in attributes, such as whether to run the tests in parallel, how many threads to use, whether you are running JUnit tests, etc... 
+	您还可以在testng中定义新的组。xml并在属性中指定附加的细节，例如是否要并行运行测试，要使用多少线程，是否运行JUnit测试等等。
+	By default, TestNG will run your tests in the order they are found in the XML file. If you want the classes and methods listed in this file to be run in an unpredictable order, set the preserve-order attribute to false
+	默认情况下，TestNG将按照在XML文件中找到的顺序运行您的测试。如果您希望在该文件中列出的类和方法以不可预知的顺序运行，那么将保护-order属性设置为false
+	
+	<test name="Regression1" preserve-order="false">
+	  <classes>
+	 
+		<class name="test.Test1">
+		  <methods>
+			<include name="m1" />
+			<include name="m2" />
+		  </methods>
+		</class>
+	 
+		<class name="test.Test2" />
+	 
+	  </classes>
+	</test>
+	
+	Please see the DTD for a complete list of the features, or read on.
+	请参阅DTD以获得完整的特性列表，或者阅读。
