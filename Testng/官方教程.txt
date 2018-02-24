@@ -1,4 +1,4 @@
-1,介绍
+1,介 绍
 	TestNG is a testing framework designed to simplify a broad range of testing needs, from unit testing (testing a class in isolation of the others) to integration testing (testing entire systems made of several classes, several packages and even several external frameworks, such as application servers).
 	TestNG是一个测试框架，旨在简化广泛的测试需求，从单元测试(单独测试一个类)到集成测试(测试由几个类、几个包甚至几个外部框架组成的整个系统,比如应用服务器)
 	Writing a test is typically a three-step process:
