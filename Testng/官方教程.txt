@@ -192,3 +192,47 @@
 	
 	Please see the DTD for a complete list of the features, or read on.
 	请参阅DTD以获得完整的特性列表，或者阅读。
+	
+4 - Running TestNG
+	TestNG can be invoked in different ways:
+	TestNG可以以不同的方式调用：
+	Command line 命令行
+	ant 
+	Eclipse 
+	IntelliJ's IDEA
+	
+	This section only explains how to invoke TestNG from the command line. Please click on one of the links above if you are interested in one of the other ways.
+	本节只介绍如何从命令行调用TestNG。如果您对其他方式感兴趣，请点击上面的链接之一。
+	Assuming that you have TestNG in your class path, the simplest way to invoke TestNG is as follows:
+	假设你已经在你的类路径测试，调用TestNG的最简单的方法如下：
+	java org.testng.TestNG testng1.xml [testng2.xml testng3.xml ...]
+
+	You need to specify at least one XML file describing the TestNG suite you are trying to run. Additionally, the following command-line switches are available:
+	你必须至少指定一个XML文件描述测试套件，你想跑。此外，还有以下命令行开关可用：
+	
+	-configfailurepolicy  skip|continue  Whether TestNG should continue to execute the remaining tests in the suite or skip them if an @Before* method fails. Default behavior is skip.
+	是否应继续执行剩余TestNG测试套件或跳过他们如果在*方法失败@。默认行为是跳过。
+	
+	-d A directory The directory where the reports will be generated (defaults to test-output).
+	将生成报告的目录（默认为测试输出）。
+	
+	-dataproviderthreadcount The default number of threads to use for data providers when running tests in parallel.This sets the default maximum number of threads to use for data providers when running tests in parallel. It will only take effect if the parallel mode has been selected (for example, with the -parallel option). This can be overridden in the suite definition.
+	并行运行测试时数据提供者使用的默认线程数。这将设置并行运行测试时数据提供者使用的默认最大线程数。如果选择了并行模式（例如，使用并行选项），它才会生效。这可以在套件定义中重写。
+	
+	-excludegroups A comma-separated list of groups. The list of groups you want to be excluded from this run.
+	逗号分隔的组列表。您希望排除在此运行中的组列表。
+	
+	-groups A comma-separated list of groups. The list of groups you want to run (e.g. "windows,linux,regression").
+	逗号分隔的组列表。 要运行的组的列表（例如“Windows、Linux、回归”）。
+	
+	-listener A comma-separated list of Java classes that can be found on your classpath. Lets you specify your own test listeners. The classes need to implement org.testng.ITestListener
+	一个逗号分隔的java类，可以在你的classpath中发现列表。允许指定自己的测试侦听器。这类需要实现org.testng.itestlistener
+	
+	-methods A comma separated list of fully qualified class name and method. For example com.example.Foo.f1,com.example.Bar.f2. Lets you specify individual methods to run.
+	逗号分隔的完全限定类名和方法列表。例如com例子。foo。F1，com.example.bar.f2。允许指定要运行的单个方法。
+	
+	-methodselectors A comma-separated list of Java classes and method priorities that define method selectors.  Lets you specify method selectors on the command line. For example: com.example.Selector1:3,com.example.Selector2:2
+	一个逗号分隔的java类和方法定义方法选择器优先级列表。允许在命令行中指定方法选择器。例如：公司的例子。selector1:3，COM selector2:2。例子。
+	
+	-parallel methods|tests|classes  If specified, sets the default mechanism used to determine how to use parallel threads when running tests. If not set, default mechanism is not to use parallel threads at all. This can be overridden in the suite definition.
+	方法|试验|类 如果指定，则设置用于在运行测试时确定如何使用并行线程的默认机制。如果未设置，则默认机制根本不使用并行线程。这可以在套件定义中重写。
